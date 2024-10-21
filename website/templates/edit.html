@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Create new note {% endblock %}
+
+{% block main %}
+<div class="container">
+    <h1 class="display-1 mb-2">Edit your note</h1>
+    <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur nisi iure aspernatur.</p>
+
+    <form action="/edit-note/{{note.id}}" method="post">
+        <div class="mb-2">
+            <label for="" class="form-label">Title</label>
+            <input type="text" class="form-control" name="title" id="title" aria-describedby="helpId"
+                placeholder="Note title.." value="{{note.title}}" />
+            <small id="helpId" class="form-text text-muted">Title must be less than 120 characters</small>
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">Content</label>
+            <textarea class="form-control" name="content" id="content" rows="3"
+                placeholder="Note body..">{{note.content}}</textarea>
+            <small id="helpId" class="form-text text-muted">Content must be at least 20 characters</small>
+        </div>
+        <a class="btn btn-secondary" href="/" role="button">Go back</a>
+        <button type="submit" class="btn btn-primary">
+            Update
+        </button>
+
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %} Home page {% endblock %}
+
+{% block main %}
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+    <h1 class="display-1">Hello, world!</h1>
+    <p>This is a template for a simple marketing or informational website. It includes a large callout called a
+        jumbotron and three supporting pieces of content. Use it as a starting point to create something more
+        unique.</p>
+    <p><a class="btn btn-primary btn-lg" href="/create-note" role="button">Create a note &raquo;</a></p>
+</div>
+<div class="container">
+    <h3 class="h2 mt-3">All notes</h3>
+    <ul class="list-group list-group-flush mt-2">
+        {% for note in notes %}
+        <li class="list-group-item d-lg-flex justify-content-between" id="{{note.id}}">
+            <p>{{note.title}}</p>
+            <div class="">
+                <a class="text-info btn p-1" href="/note/{{note.id}}">View</a>
+                <a class="text-primary btn p-1" href="/edit-note/{{note.id}}">Edit</a>
+                <button type="button" class="text-danger btn btn-link p-1"
+                    onclick="deleteNote({{ note.id }})">Delete</button>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+</div>
+{% endblock %}

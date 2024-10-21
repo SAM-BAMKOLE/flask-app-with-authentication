@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}View note{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="card">
+        <div class="card-header">Note</div>
+        <div class="card-body">
+            <h4 class="card-title">{{note['title']}}</h4>
+            <p class="card-text">{{note['content']}}</p>
+        </div>
+        <!-- <div class="card-footer text-muted">Footer</div> -->
+    </div>
+    <a class="btn btn-primary mt-5" href="/" role="button">Go back</a>
+
+</div>
+{% endblock %}
